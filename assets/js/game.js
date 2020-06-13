@@ -18,20 +18,20 @@ var fight = function(enemyNames) {
   // Alert users that they are starting the round
   //window.alert("Welcome to Robot Gladiators!");
 
-    var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
-    console.log(promptFight);
+      var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
+      console.log(promptFight);
       // if user picks "skip" confirm and then stop the loop
       if (promptFight === "skip" || promptFight === "SKIP") {
       // confirm user wants to skip
         var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-      }
-      // if yes (true), leave fight
-      if (confirmSkip) {
-        window.alert(playerName + " has decided to skip this fight. Goodbye!");
-        // subtract money from playerMoney for skipping
-        playerMoney = playerMoney - 10;
-        console.log("playerMoney", playerMoney);
-        break;
+        // if yes (true), leave fight
+        if (confirmSkip) {
+          window.alert(playerName + " has decided to skip this fight. Goodbye!");
+          // subtract money from playerMoney for skipping
+          playerMoney = playerMoney - 10;
+          console.log("playerMoney", playerMoney);
+          break;
+        }
       }
 
       // if player choses to fight, then fight
@@ -41,7 +41,7 @@ var fight = function(enemyNames) {
         console.log(
         playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining."
         );
-        }
+      }
         
 
         // check enemy's health
@@ -72,6 +72,8 @@ var fight = function(enemyNames) {
           window.alert(playerName + " still has " + playerHealth + " health left.");
         }
       }
+  }
+
     
       fight();
     
@@ -106,7 +108,7 @@ var fight = function(enemyNames) {
       // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
       endGame();    
     }
-  }
+  
 
     // function to end the entire game
     var endGame = function() {
@@ -136,4 +138,4 @@ var fight = function(enemyNames) {
   startGame();
   
 
-
+  
