@@ -100,9 +100,13 @@ var startGame = function() {
       console.log()
   }
   // play again
-  //endGame();
+  // after the loop ends, player is either out of health or enemies to fight
+  endGame();
 };
 startGame();
+
+
+
   
 
   
