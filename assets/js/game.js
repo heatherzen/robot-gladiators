@@ -122,6 +122,7 @@ var startGame = function() {
       
       // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1) );
+      debugger;
       // pick new enemy to fight based on the index of the enemy.names array
       var pickedEnemyObj = enemyInfo[i];
       // reset enemy health before starting a new fight
@@ -130,7 +131,7 @@ var startGame = function() {
       fight(pickedEnemyObj);
       console.log();
       //if we're not at the last enemy in the array
-    if (playerInfo.health > 0 && i < enemy.name.length - 1) {
+    if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
       // ask if user wants to use the store before next round
       var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
       // if yes, take them to the store() function
@@ -146,8 +147,15 @@ var startGame = function() {
   endGame();
 };
 
+var getPlayerName = function() {
+  var name = "";
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+
+}
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
